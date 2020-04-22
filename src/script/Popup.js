@@ -1,4 +1,4 @@
-class Popup {
+export default class Popup {
     open(event) {
         if (event.target.classList.contains('user-info__editbutton')) {
             let edit = document.querySelector('#popup1');

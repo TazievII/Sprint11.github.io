@@ -1,3 +1,12 @@
+import '../pages/index.css';
+import Api from './Api';
+import Card from './Card';
+import CardList from './CardList';
+import FormValidator from './FormValidator';
+import Popup from './Popup';
+import Profile from './Profile';
+import UserInfo from './UserInfo';
+
 /* Переменные */
 const profile = document.querySelector('.profile');
 const openClose = document.querySelector('.root');
@@ -17,6 +26,7 @@ const profileInfo = new Profile(profile, api);
 const popup = new Popup(document.querySelectorAll('.popup'));
 const userInfo = new UserInfo(formEdit.elements.firstname.value, formEdit.elements.about.value);
 const formValidator = new FormValidator(formEdit.elements.firstname.value, formEdit.elements.about.value);
+
 
 
 api.getInitialCards();

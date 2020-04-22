@@ -1,4 +1,4 @@
-class Profile {
+export default class Profile {
     constructor(profileInfo, api) {
       this.profileInfo = profileInfo;
       this.api = api;

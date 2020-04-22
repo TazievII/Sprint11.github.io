@@ -1,0 +1,40 @@
+{
+  "name": "sprint11.github.io",
+  "version": "1.0.0",
+  "description": "",
+  "main": "script.js",
+  "scripts": {
+    "build": "cross-env NODE_ENV=production rimraf dist && webpack --mode production",
+    "dev": "cross-env NODE_ENV=development webpack-dev-server --mode development --open --watch",
+    "deploy": "cross-env NODE_ENV=production gh-pages -d dist"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TazievII/Sprint11.github.io.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/TazievII/Sprint11.github.io/issues"
+  },
+  "homepage": "https://github.com/TazievII/Sprint11.github.io#readme",
+  "devDependencies": {
+    "autoprefixer": "^9.7.6",
+    "clean-webpack-plugin": "^3.0.0",
+    "cross-env": "^7.0.2",
+    "css-loader": "^3.5.2",
+    "cssnano": "^4.1.10",
+    "file-loader": "^6.0.0",
+    "html-webpack-plugin": "^4.2.0",
+    "image-webpack-loader": "^6.0.0",
+    "lodash": "^4.17.15",
+    "mini-css-extract-plugin": "^0.9.0",
+    "optimize-css-assets-webpack-plugin": "^5.0.3",
+    "postcss-loader": "^3.0.0",
+    "style-loader": "^1.1.4",
+    "webpack": "^4.42.1",
+    "webpack-cli": "^3.3.11",
+    "webpack-dev-server": "^3.10.3"
+  }
+}
