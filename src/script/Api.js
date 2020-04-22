@@ -51,8 +51,8 @@ export default class Api {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-        name: formEdit.elements.firstname.value,
-        about: formEdit.elements.about.value
+        name: document.forms.edit.elements.firstname.value,
+        about: document.forms.edit.elements.about.value
     })
   })
     .then((res) => { return res.json()})

@@ -5,8 +5,8 @@ export default class UserInfo {
     }
 
     setUserInfo() {
-        this.firstname = formEdit.elements.firstname.value;
-        this.about = formEdit.elements.about.value;
+        this.firstname = document.forms.edit.elements.firstname.value;
+        this.about = document.forms.edit.elements.about.value;
     }
 
     updateUserInfo() {

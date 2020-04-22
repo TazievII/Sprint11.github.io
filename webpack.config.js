@@ -31,14 +31,7 @@ module.exports = {
                     preset: ['default'],
             },
             canPrint: true
-        }),
-        require('autoprefixer'),
-        require('cssnano')({ // подключили cssnano
-             preset: 'default', // выбрали настройки по умолчанию
-     })/*,
-        new webpackDefinePlugin({
-        'NODE_ENV': JSON.stringify(process.env.NODE_ENV)
-    })*/
+        })
     ],
     module: {
         rules: [
@@ -50,18 +43,27 @@ module.exports = {
                         ]
             },
             {
-                test: /\.(png|jpg|gif|ico|svg)$/,
+                test: /\.(png|jpe?g|gif|svg)$/i,
                 use: [
-                        'file-loader?name=./images/[name].[ext]', // указали папку, куда складывать изображения
-                        {
-                                loader: 'image-webpack-loader',
-                                options: {}
-                        },
-                ]
-         },
+                  {
+                    loader: 'file-loader',
+                    options: {
+                      esModule: false,
+                      name: '[name].[ext]',
+                      outputPath: 'images'
+                    },
+                  },
+                ],
+              },
             {
                 test: /\.(woff|woff2)$/,
-                use: ['file-loader']
+                use: [{
+                    loader: 'file-loader',
+                    options: {
+                        name: '[name].[ext]',
+                        outputPath: 'vendor'
+                    }
+                }]
             }
         ]
     }

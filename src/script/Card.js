@@ -2,31 +2,24 @@ export default class Card {
     constructor () {
         this.listeners();
     }
-
+    getTemplate (name, link) {
+        const template = 
+      `<div class="place-card">
+        <div class="place-card__image" style="background: url(${link})">
+          <button class="place-card__delete-icon"></button>
+        </div>
+        <div class="place-card__description">
+          <h3 class="place-card__name">${name}</h3>
+          <div class="place-card__button-counter">
+          <button class="place-card__like-icon"></button>
+          <p class="place-card__like-counter">0</p>
+          </div>
+        </div>
+        </div>`;
+      return template;
+}
     createCard(name, link) {
-        let bgUrl = `url(${link})`;
-        const card = document.createElement('div');
-        const cardImage = document.createElement('div');
-        const cardButton = document.createElement('button');
-        const cardDescription = document.createElement('div');
-        const cardName = document.createElement('h3');
-        const cardLike = document.createElement('button');
-
-        cardContainer.appendChild(card);
-        card.classList.add('place-card');
-        card.appendChild(cardImage);
-        cardImage.classList.add('place-card__image');
-        cardImage.style.backgroundImage = bgUrl;
-        card.appendChild(cardDescription);
-        cardDescription.classList.add('place-card__description');
-        cardImage.appendChild(cardButton);
-        cardButton.classList.add('place-card__delete-icon');
-        cardDescription.appendChild(cardName);
-        cardName.classList.add('place-card__name');
-        cardName.textContent = name;
-        cardDescription.appendChild(cardLike);
-        cardLike.classList.add('place-card__like-icon');
-        return card;
+      document.querySelector('.places-list').insertAdjacentHTML('beforeend', this.getTemplate(name, link));
     }
 
     like(event) {
