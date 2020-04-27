@@ -1,22 +1,22 @@
+import '../pages/index.css';
+import Api from './Api';
+import Card from './Card';
+import CardList from './CardList';
+import FormValidator from './FormValidator';
+import Popup from './Popup';
+import Profile from './Profile';
+import UserInfo from './UserInfo';
+
 /* Переменные */
-const profile = document.querySelector('.profile');
-const openClose = document.querySelector('.root');
-const cardContainer = document.querySelector('.places-list');
-const form = document.forms.new;
-const formEdit = document.forms.edit;
+import {profile, openClose, cardContainer, form, formEdit, config} from './consts';
 const cardElement = new Card();
-const config = {
-  baseUrl: 'https://praktikum.tk/cohort9',
-  headers: {
-    authorization: '2ca8c5d8-d8f7-4c26-befb-2dabe82c5f13',
-    'Content-Type': 'application/json'
-  }};
 const api = new Api(config, cardContainer);
 const cardList = new CardList(cardContainer, api);
 const profileInfo = new Profile(profile, api);
 const popup = new Popup(document.querySelectorAll('.popup'));
 const userInfo = new UserInfo(formEdit.elements.firstname.value, formEdit.elements.about.value);
 const formValidator = new FormValidator(formEdit.elements.firstname.value, formEdit.elements.about.value);
+
 
 
 api.getInitialCards();
@@ -55,8 +55,8 @@ form.addEventListener('submit', () => {
   let name = document.querySelector('.popup__input_type_name').value;
   let link = document.querySelector('.popup__input_type_link-url').value;
   const saveButton = document.querySelector('.popup__button');
-  api.addCardToServer();
-  cardList.addCard(name, link);
+  //api.addCardToServer();
+  cardElement.createCard(name, link);
   form.reset();
   let close = document.querySelector('#popup2');
   close.classList.remove('popup_is-opened');

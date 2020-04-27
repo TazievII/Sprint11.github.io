@@ -1,12 +1,12 @@
-class UserInfo {
+export default class UserInfo {
     constructor(firstname, about) {
         this.firstname = firstname;
         this.about = about;
     }
 
     setUserInfo() {
-        this.firstname = formEdit.elements.firstname.value;
-        this.about = formEdit.elements.about.value;
+        this.firstname = document.forms.edit.elements.firstname.value;
+        this.about = document.forms.edit.elements.about.value;
     }
 
     updateUserInfo() {

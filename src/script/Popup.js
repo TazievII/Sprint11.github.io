@@ -1,10 +1,10 @@
-class Popup {
+export default class Popup {
     open(event) {
         if (event.target.classList.contains('user-info__editbutton')) {
             let edit = document.querySelector('#popup1');
             edit.classList.add('popup_is-opened');
-            let firstname = formEdit.elements.firstname;
-            let about = formEdit.elements.about;
+            let firstname = document.forms.edit.elements.firstname;
+            let about = document.forms.edit.elements.about;
             firstname.value = document.querySelector('.user-info__name').textContent;
             about.value = document.querySelector('.user-info__job').textContent;
         } else if (event.target.classList.contains('user-info__button')) {
